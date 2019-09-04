@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="com.example.icbc.DataBean" />
+    </data>
+<LinearLayout
+    android:id="@+id/ll_layout"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="40dp">
+
+        <TextView
+            android:text="@{data.cinvcode}"
+            style="@style/tv"
+            />
+        <TextView
+            android:text="@{data.cinvname}"
+            style="@style/tv"
+             />
+
+        <TextView
+            android:text="@{data.dstartdate}"
+            style="@style/tv" />
+        <TextView
+            android:text="@{data.denddate}"
+            style="@style/tv" />
+
+        <TextView
+            android:text="@{data.iquantity}"
+            style="@style/tv" />
+        <TextView
+            android:text="@{data.itotalqty}"
+            style="@style/tv"/>
+
+        <TextView
+            android:text="@{data.idayqty}"
+            style="@style/tv" />
+
+
+
+
+
+</LinearLayout>
+</layout>

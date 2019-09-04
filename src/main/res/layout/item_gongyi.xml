@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="com.example.icbc.DataBean" />
+    </data>
+    <LinearLayout
+        android:id="@+id/ll_layout"
+        android:orientation="horizontal"
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:text="@{data.ccode}"
+            style="@style/tv"
+            />
+        <TextView
+            android:text="@{data.cname}"
+            style="@style/tv"
+            />
+
+        <TextView
+            android:text="@{data.ccompanyname}"
+            style="@style/tv" />
+
+
+
+
+
+
+    </LinearLayout>
+</layout>

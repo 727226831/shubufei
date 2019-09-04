@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+        
+             
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Item1Activity" android:tag="layout/activity_item1_0">
+    <include layout="@layout/layout_title"/>
+    <LinearLayout
+        android:id="@+id/ll_item1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="2"
+            android:id="@+id/tv_key1"
+            android:drawableRight="@mipmap/ic_choose"
+            android:layout_margin="@dimen/layout_margin"
+            android:text="委外工序："
+            style="@style/item_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:layout_weight="2"
+            android:id="@+id/tv_key2"
+            android:drawableRight="@mipmap/ic_choose"
+            android:layout_margin="@dimen/layout_margin"
+            android:text="产线："
+            style="@style/item_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+    <TextView
+
+        android:id="@+id/tv_key3"
+        android:drawableRight="@mipmap/ic_choose"
+        android:layout_margin="@dimen/layout_margin"
+        android:text="款号："
+        style="@style/item_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <LinearLayout
+        android:id="@+id/ll_item2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="2"
+            android:id="@+id/tv_key4"
+
+            android:layout_margin="@dimen/layout_margin"
+            android:text="裁剪开工："
+            style="@style/item_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+    android:id="@+id/ll_item3"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_weight="2"
+        android:id="@+id/tv_key5"
+
+        android:layout_margin="@dimen/layout_margin"
+        android:text="上线日期："
+        style="@style/item_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <TextView
+        android:layout_weight="2"
+        android:id="@+id/tv_key6"
+
+        android:layout_margin="@dimen/layout_margin"
+        android:text="下线日期："
+        style="@style/item_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_margin="@dimen/layout_margin"
+        android:text="订单数量："
+        style="@style/item_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <LinearLayout
+        android:id="@+id/ll_item4"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="2"
+            android:id="@+id/tv_key7"
+
+            android:layout_margin="@dimen/layout_margin"
+            android:text="上线累积量："
+            style="@style/item_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <LinearLayout
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/textview"
+                android:id="@+id/tv_title1"
+                android:text="日产量："
+                />
+            <EditText
+                android:layout_gravity="center_vertical"
+                style="@style/edittext"
+                android:id="@+id/et_warehouse"
+                android:layout_toRightOf="@id/tv_title1"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_item5"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_weight="2"
+            android:id="@+id/tv_key10"
+
+            android:layout_margin="@dimen/layout_margin"
+            android:text="今日累计产量："
+            style="@style/item_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:layout_weight="2"
+            android:id="@+id/tv_key9"
+            android:drawableRight="@mipmap/ic_choose"
+            android:layout_margin="@dimen/layout_margin"
+            android:text="是否下线："
+            style="@style/item_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv_key11"
+        android:layout_margin="@dimen/layout_margin"
+        android:text="填报日期："
+        style="@style/item_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <LinearLayout
+        android:id="@+id/ll_item6"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="2"
+            android:id="@+id/tv_key12"
+
+            android:layout_margin="@dimen/layout_margin"
+            android:text="填报人：demo"
+            style="@style/item_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+    <TextView
+
+        android:id="@+id/tv_item13"
+
+        android:layout_margin="@dimen/layout_margin"
+        android:text="款号名称："
+        style="@style/item_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/textview"
+            android:id="@+id/tv_item8"
+            android:text="备注："
+            />
+        <EditText
+            android:layout_gravity="center_vertical"
+            style="@style/edittext"
+            android:id="@+id/et_item8"
+            android:layout_toRightOf="@id/tv_title1"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/l_bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <TextView
+                android:gravity="center_vertical"
+                android:textSize="18sp"
+                android:id="@+id/tv_total"
+                android:padding="10dp"
+                android:background="@android:color/transparent"
+                android:layout_width="150dp"
+                android:layout_height="match_parent" />
+
+            <Button
+                android:layout_alignParentRight="true"
+
+                android:layout_alignParentBottom="true"
+                android:id="@+id/b_submit"
+                android:layout_margin="10dp"
+                android:background="@color/black"
+                android:textColor="@android:color/white"
+                android:text="提交"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>
+
+         

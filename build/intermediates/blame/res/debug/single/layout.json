@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\lincon\\icbc\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_list.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\lincon\\icbc\\src\\main\\res\\layout\\item_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\lincon\\icbc\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_gongyi.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\lincon\\icbc\\src\\main\\res\\layout\\item_gongyi.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\lincon\\icbc\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\item_cmakeline.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\lincon\\icbc\\src\\main\\res\\layout\\item_cmakeline.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\lincon\\icbc\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_login.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\lincon\\icbc\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\curry\\AndroidStudioProjects\\lincon\\icbc\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_item1.xml",
+        "source": "C:\\Users\\curry\\AndroidStudioProjects\\lincon\\icbc\\src\\main\\res\\layout\\activity_item1.xml"
+    }
+]

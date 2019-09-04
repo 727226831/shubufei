@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+        
+    
+                 
+                       
+                                               
+           
+<LinearLayout
+    android:id="@+id/ll_layout"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="40dp" android:tag="layout/item_list_0">
+
+        <TextView
+            android:tag="binding_1"        
+            style="@style/tv"
+            />
+        <TextView
+            android:tag="binding_2"        
+            style="@style/tv"
+             />
+
+        <TextView
+            android:tag="binding_3"          
+            style="@style/tv" />
+        <TextView
+            android:tag="binding_4"        
+            style="@style/tv" />
+
+        <TextView
+            android:tag="binding_5"         
+            style="@style/tv" />
+        <TextView
+            android:tag="binding_6"         
+            style="@style/tv"/>
+
+        <TextView
+            android:tag="binding_7"       
+            style="@style/tv" />
+
+
+
+
+
+</LinearLayout>
+         
