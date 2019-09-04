@@ -1,4 +1,4 @@
-package com.example.icbc;
+package com.example.shubufei;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,24 +6,13 @@ import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.icbc.BuildConfig;
+import com.example.icbc.R;
 import com.example.icbc.databinding.ActivityLoginBinding;
-
-import com.google.gson.Gson;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class LoginActivity extends BaseActivity {
     TextView titleTv;
@@ -32,16 +21,16 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       activityLoginBinding=DataBindingUtil.setContentView(this,R.layout.activity_login);
+       activityLoginBinding=DataBindingUtil.setContentView(this, R.layout.activity_login);
 
         titleTv=activityLoginBinding.getRoot().findViewById(R.id.tv_title);
         titleTv.setText("掌上管仓");
-        SharedPreferences sharedPreferences = getSharedPreferences("sp", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences("sp", MODE_PRIVATE);
 
         activityLoginBinding.cbRemember.setChecked(sharedPreferences.getBoolean("isChecked",true));
         activityLoginBinding.etUsername.setText(sharedPreferences.getString("user",""));
 
-        activityLoginBinding.tvVersion.setText("版本号"+BuildConfig.VERSION_NAME);
+        activityLoginBinding.tvVersion.setText("版本号"+ BuildConfig.VERSION_NAME);
 
         if(activityLoginBinding.cbRemember.isChecked()){
             activityLoginBinding.etPassword.setText(sharedPreferences.getString("password",""));
@@ -49,7 +38,7 @@ public class LoginActivity extends BaseActivity {
           activityLoginBinding.cbRemember.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
               @Override
               public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                  SharedPreferences sharedPreferences = getSharedPreferences("sp", Context.MODE_PRIVATE);
+                  SharedPreferences sharedPreferences = getSharedPreferences("sp", MODE_PRIVATE);
                   SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
                   editor.putBoolean("isChecked",activityLoginBinding.cbRemember.isChecked());
                   if (isChecked==false){

@@ -31,20 +31,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListActivity"></activity>
-        <activity android:name=".Item2Activity" />
-        <activity android:name=".Item1Activity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.example.shubufei.ListActivity"></activity>
 
-        </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name="com.example.shubufei.Item1Activity" />
+
+        <activity android:name="com.example.shubufei.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PortActivity"/>
+        <activity android:name="com.example.shubufei.PortActivity"/>
     </application>
 
 </manifest>

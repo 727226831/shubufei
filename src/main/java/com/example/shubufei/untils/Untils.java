@@ -1,4 +1,4 @@
-package com.example.icbc;
+package com.example.shubufei.untils;
 
 import android.app.Activity;
 import android.text.TextUtils;
@@ -6,6 +6,8 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.example.icbc.R;
 
 import java.io.FileInputStream;
 import java.io.IOException;

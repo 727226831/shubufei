@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Item1Activity">
+    tools:context="com.example.shubufei.Item1Activity">
     <include layout="@layout/layout_title"/>
     <LinearLayout
         android:id="@+id/ll_item1"

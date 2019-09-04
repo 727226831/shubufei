@@ -1,8 +1,6 @@
-package com.example.icbc;
+package com.example.shubufei.adapter;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 
-
+import com.example.icbc.R;
 import com.example.icbc.databinding.ItemListBinding;
+import com.example.shubufei.DataBean;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.VH>{
     @NonNull
     @Override
     public FunctionAdapter.VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        ItemListBinding binding= DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()),R.layout.item_list,viewGroup,false);
+        ItemListBinding binding= DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.item_list,viewGroup,false);
 
         return new FunctionAdapter.VH(binding.getRoot());
     }

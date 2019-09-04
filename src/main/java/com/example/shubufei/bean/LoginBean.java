@@ -1,4 +1,4 @@
-package com.example.icbc;
+package com.example.shubufei.bean;
 
 import java.util.ArrayList;
 import java.util.List;

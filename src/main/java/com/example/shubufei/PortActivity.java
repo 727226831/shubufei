@@ -1,6 +1,5 @@
-package com.example.icbc;
+package com.example.shubufei;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -9,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.icbc.R;
+import com.example.shubufei.untils.Request;
+import com.example.shubufei.untils.Untils;
 
 
 public class PortActivity extends BaseActivity{
@@ -26,7 +28,7 @@ public class PortActivity extends BaseActivity{
 
         Untils.initTitle("设置",this);
 
-         sharedPreferences= getSharedPreferences("sp", Context.MODE_PRIVATE);
+         sharedPreferences= getSharedPreferences("sp", MODE_PRIVATE);
 
          editText.setText(sharedPreferences.getString("port",""));
 
@@ -36,7 +38,7 @@ public class PortActivity extends BaseActivity{
                 SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
                 if(editText.getText().toString().equals("")){
                     Toast.makeText(PortActivity.this,"地址已重置为默认地址",Toast.LENGTH_LONG).show();
-                    editor.putString("port",Request.BASEURL);
+                    editor.putString("port", Request.BASEURL);
                     return;
                 }
                 if(Patterns.WEB_URL.matcher(editText.getText().toString()).matches()){

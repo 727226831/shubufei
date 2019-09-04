@@ -1,27 +1,25 @@
-package com.example.icbc;
+package com.example.shubufei;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.icbc.R;
+import com.example.shubufei.adapter.FunctionAdapter;
+import com.example.shubufei.adapter.GongYiAdapter;
+import com.example.shubufei.untils.SpacesItemDecoration;
+import com.example.shubufei.adapter.cMakeLineAdapter;
+import com.example.shubufei.untils.Request;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 

@@ -1,4 +1,4 @@
-package com.example.icbc;
+package com.example.shubufei;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -6,28 +6,21 @@ import android.databinding.DataBindingUtil;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.icbc.R;
 import com.example.icbc.databinding.ActivityItem1Binding;
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
+import com.example.shubufei.untils.Request;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -42,7 +35,7 @@ public class Item1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_item1);
+        binding= DataBindingUtil.setContentView(this, R.layout.activity_item1);
         switch (getIntent().getIntExtra("type",-1)){
             case 0:
                 binding.llItem4.setVisibility(View.GONE);

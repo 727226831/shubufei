@@ -1,7 +1,5 @@
-package com.example.icbc;
+package com.example.shubufei.adapter;
 
-import android.content.Context;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,35 +8,39 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.example.icbc.databinding.ItemGongyiBinding;
-import com.example.icbc.databinding.ItemListBinding;
+import com.example.icbc.R;
+import com.example.icbc.databinding.ItemCmakelineBinding;
+import com.example.shubufei.DataBean;
 
 import java.util.List;
 
-public class GongYiAdapter extends RecyclerView.Adapter<GongYiAdapter.VH>{
+public class cMakeLineAdapter extends RecyclerView.Adapter<cMakeLineAdapter.VH>{
     private OnitemClick onitemClick;
     @NonNull
     @Override
-    public GongYiAdapter.VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        ItemGongyiBinding binding= DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()),R.layout.item_gongyi,viewGroup,false);
+    public cMakeLineAdapter.VH onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        ItemCmakelineBinding binding= DataBindingUtil.inflate(LayoutInflater.from(viewGroup.getContext()), R.layout.item_cmakeline,viewGroup,false);
 
-        return new GongYiAdapter.VH(binding.getRoot());
+        return new cMakeLineAdapter.VH(binding.getRoot());
     }
 
     private List<DataBean> mDatas;
-    public GongYiAdapter(List<DataBean> data) {
+    public cMakeLineAdapter(List<DataBean> data) {
         this.mDatas = data;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull GongYiAdapter.VH vh, final int i) {
-        ItemGongyiBinding binding=DataBindingUtil.getBinding(vh.itemView);
+    public void onBindViewHolder(@NonNull cMakeLineAdapter.VH vh, final int i) {
+        ItemCmakelineBinding binding=DataBindingUtil.getBinding(vh.itemView);
         binding.llLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 onitemClick.onItemClick(i);
             }
         });
+
+
         DataBean data=mDatas.get(i);
         binding.setData(data);
         binding.executePendingBindings();

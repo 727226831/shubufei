@@ -3,7 +3,7 @@
     <data>
         <variable
             name="data"
-            type="com.example.icbc.DataBean" />
+            type="com.example.shubufei.DataBean" />
     </data>
     <LinearLayout
         android:id="@+id/ll_layout"

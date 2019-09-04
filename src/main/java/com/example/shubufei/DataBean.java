@@ -1,4 +1,4 @@
-package com.example.icbc;
+package com.example.shubufei;
 
 import android.os.Parcel;
 import android.os.Parcelable;
