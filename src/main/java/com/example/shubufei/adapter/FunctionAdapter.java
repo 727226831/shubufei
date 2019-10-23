@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import com.example.icbc.R;
 import com.example.icbc.databinding.ItemListBinding;
 import com.example.shubufei.DataBean;
+import com.example.shubufei.bean.Data;
 
 import java.util.List;
 
@@ -31,9 +32,9 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.VH>{
     public void setOnitemClickLintener (OnitemClick onitemClick) {
         this.onitemClick = onitemClick;
     }
-    private List<DataBean> mDatas;
+    private List<Data> mDatas;
 
-    public FunctionAdapter(List<DataBean> data) {
+    public FunctionAdapter(List<Data> data) {
         this.mDatas = data;
 
     }
@@ -49,7 +50,7 @@ public class FunctionAdapter extends RecyclerView.Adapter<FunctionAdapter.VH>{
           });
 
 
-        DataBean data=mDatas.get(i);
+        Data data=mDatas.get(i);
         binding.setData(data);
         binding.executePendingBindings();
 

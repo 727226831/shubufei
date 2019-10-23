@@ -3,7 +3,7 @@
     <data>
         <variable
             name="data"
-            type="com.example.shubufei.DataBean" />
+            type="com.example.shubufei.bean.Data" />
     </data>
 <LinearLayout
     android:id="@+id/ll_layout"
@@ -15,10 +15,7 @@
             android:text="@{data.cinvcode}"
             style="@style/tv"
             />
-        <TextView
-            android:text="@{data.cinvname}"
-            style="@style/tv"
-             />
+
 
         <TextView
             android:text="@{data.dstartdate}"
@@ -30,9 +27,6 @@
         <TextView
             android:text="@{data.iquantity}"
             style="@style/tv" />
-        <TextView
-            android:text="@{data.itotalqty}"
-            style="@style/tv"/>
 
         <TextView
             android:text="@{data.idayqty}"

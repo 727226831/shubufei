@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import com.example.icbc.R;
 import com.example.icbc.databinding.ItemGongyiBinding;
 import com.example.shubufei.DataBean;
+import com.example.shubufei.bean.Data;
 
 import java.util.List;
 
@@ -24,8 +25,8 @@ public class GongYiAdapter extends RecyclerView.Adapter<GongYiAdapter.VH>{
         return new GongYiAdapter.VH(binding.getRoot());
     }
 
-    private List<DataBean> mDatas;
-    public GongYiAdapter(List<DataBean> data) {
+    private List<Data> mDatas;
+    public GongYiAdapter(List<Data> data) {
         this.mDatas = data;
     }
 
@@ -38,7 +39,7 @@ public class GongYiAdapter extends RecyclerView.Adapter<GongYiAdapter.VH>{
                 onitemClick.onItemClick(i);
             }
         });
-        DataBean data=mDatas.get(i);
+        Data data=mDatas.get(i);
         binding.setData(data);
         binding.executePendingBindings();
 

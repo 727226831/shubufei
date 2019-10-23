@@ -6,13 +6,28 @@ import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.icbc.BuildConfig;
 import com.example.icbc.R;
 import com.example.icbc.databinding.ActivityLoginBinding;
+import com.example.shubufei.bean.LoginBean;
+import com.example.shubufei.untils.Request;
+import com.example.shubufei.untils.iUrl;
+import com.google.gson.Gson;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class LoginActivity extends BaseActivity {
     TextView titleTv;
@@ -59,81 +74,80 @@ public class LoginActivity extends BaseActivity {
         activityLoginBinding.bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this,Item1Activity.class);
-                intent.putExtra("type",1);
-                startActivity(intent);
 
-//                dialog.show();
-//                JSONObject jsonObject=new JSONObject();
-//                try {
-//                    jsonObject.put("methodname","UserLogin");
-//                    jsonObject.put("usercode",activityLoginBinding.etUsername.getText().toString());
-//                    jsonObject.put("userpassword",activityLoginBinding.etPassword.getText().toString());
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//
-//                String obj=jsonObject.toString();
-//                Log.i("json object",obj);
-//                SharedPreferences sharedPreferences = getSharedPreferences("sp", Context.MODE_PRIVATE);
-//                if(sharedPreferences.getString("port","").equals("")){
-//                         sharedPreferences.edit().putString("port",Request.BASEURL).commit();
-//                }
-//                Request.URL=sharedPreferences.getString("port","");
-//                Log.i("url--->",Request.URL+"/Handler.ashx");
-//                Retrofit retrofit=new Retrofit.Builder().baseUrl(Request.URL).build();
-//                RequestBody body=RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"),obj);
-//                iUrl login = retrofit.create(iUrl.class);
-//                retrofit2.Call<ResponseBody> data = login.getMessage(body);
-//                data.enqueue(new Callback<ResponseBody>() {
-//                    @Override
-//                    public void onResponse(retrofit2.Call<ResponseBody> call, Response<ResponseBody> response) {
-//
-//                        try {
-//                            dialog.dismiss();
-//                            switch (response.code()){
-//                                case 200:
-//                                    LoginBean resultBean=new Gson().fromJson(response.body().string(),LoginBean.class);
-//                                    if(resultBean.getResultcode().equals("200")) {
-//                                        SharedPreferences sharedPreferences = getSharedPreferences("sp", Context.MODE_PRIVATE);
-//                                        SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
-//                                        editor.putString("usercode",resultBean.getUsercode());
-//                                        editor.putString("user",activityLoginBinding.etUsername.getText().toString());
-//                                        editor.putString("password",activityLoginBinding.etPassword.getText().toString()).commit();
-//                                        editor.putBoolean("isChecked",activityLoginBinding.cbRemember.isChecked());
-//                                        editor.putString("userinfo",new Gson().toJson(resultBean));
-//                                        editor.commit();
-//                                        if(!resultBean.getVersionNumber().equals(BuildConfig.VERSION_NAME)){
-//                                            downloadByWeb(LoginActivity.this,Request.URL+"/upgrade/MMS_"+resultBean.getVersionNumber()+".apk");
-//                                        }else {
-//                                            acccode=resultBean.getAcccode();
-//                                            usercode=resultBean.getUsercode();
-//
-//                                            startActivity(new Intent(LoginActivity.this,MainActivity.class));
-//                                            LoginActivity.this.finish();
-//                                        }
-//
-//                                    }else {
-//                                        Toast.makeText(LoginActivity.this,resultBean.getResultMessage(),Toast.LENGTH_LONG).show();
-//                                    }
-//                                    break;
-//                                case 500:
-//                                    Toast.makeText(LoginActivity.this,"服务器内部错误。",Toast.LENGTH_LONG).show();
-//                                    break;
-//                                case 404:
-//                                    Toast.makeText(LoginActivity.this,"所请求的页面不存在或已被删除！",Toast.LENGTH_LONG).show();
-//                                    break;
-//
-//                            }
-//
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                    @Override
-//                    public void onFailure(retrofit2.Call<ResponseBody> call, Throwable t) {
-//
-//                    } });
+
+                dialog.show();
+                JSONObject jsonObject=new JSONObject();
+                try {
+                    jsonObject.put("methodname","UserLogin");
+                    jsonObject.put("usercode",activityLoginBinding.etUsername.getText().toString());
+                    jsonObject.put("userpassword",activityLoginBinding.etPassword.getText().toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                String obj=jsonObject.toString();
+                Log.i("json object",obj);
+                SharedPreferences sharedPreferences = getSharedPreferences("sp", Context.MODE_PRIVATE);
+                if(sharedPreferences.getString("port","").equals("")){
+                         sharedPreferences.edit().putString("port",Request.BASEURL).commit();
+                }
+                Request.URL=sharedPreferences.getString("port","");
+                Log.i("url--->",Request.URL+"/Handler.ashx");
+                Retrofit retrofit=new Retrofit.Builder().baseUrl(Request.URL).build();
+                RequestBody body=RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"),obj);
+                iUrl login = retrofit.create(iUrl.class);
+                retrofit2.Call<ResponseBody> data = login.getMessage(body);
+                data.enqueue(new Callback<ResponseBody>() {
+                    @Override
+                    public void onResponse(retrofit2.Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                        try {
+                            dialog.dismiss();
+                            switch (response.code()){
+                                case 200:
+                                    LoginBean resultBean=new Gson().fromJson(response.body().string(), LoginBean.class);
+                                    if(resultBean.getResultcode().equals("200")) {
+                                        SharedPreferences sharedPreferences = getSharedPreferences("sp", Context.MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
+                                        editor.putString("usercode",resultBean.getUsercode());
+                                        editor.putString("user",activityLoginBinding.etUsername.getText().toString());
+                                        editor.putString("password",activityLoginBinding.etPassword.getText().toString()).commit();
+                                        editor.putBoolean("isChecked",activityLoginBinding.cbRemember.isChecked());
+                                        editor.putString("userinfo",new Gson().toJson(resultBean));
+                                        editor.commit();
+                                        if(!resultBean.getResultcode().equals("200")){
+                                            Toast.makeText(LoginActivity.this,resultBean.getResultMessage(),Toast.LENGTH_LONG).show();
+                                        }else {
+                                            acccode=resultBean.getAcccode();
+                                            usercode=resultBean.getUsercode();
+
+                                            Intent intent=new Intent(LoginActivity.this,Item1Activity.class);
+                                            intent.putExtra("cuser",resultBean.getUsername());
+                                            startActivity(intent);
+                                        }
+
+                                    }else {
+                                        Toast.makeText(LoginActivity.this,resultBean.getResultMessage(), Toast.LENGTH_LONG).show();
+                                    }
+                                    break;
+                                case 500:
+                                    Toast.makeText(LoginActivity.this,"服务器内部错误。",Toast.LENGTH_LONG).show();
+                                    break;
+                                case 404:
+                                    Toast.makeText(LoginActivity.this,"所请求的页面不存在或已被删除！",Toast.LENGTH_LONG).show();
+                                    break;
+
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    @Override
+                    public void onFailure(retrofit2.Call<ResponseBody> call, Throwable t) {
+
+                    } });
             }
         });
 

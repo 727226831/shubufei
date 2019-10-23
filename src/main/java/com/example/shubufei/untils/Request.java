@@ -1,5 +1,7 @@
 package com.example.shubufei.untils;
 
+import android.util.Log;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -21,7 +23,7 @@ public class Request {
                 readTimeout(120, TimeUnit.SECONDS).
                 writeTimeout(120, TimeUnit.SECONDS).build();
         Retrofit retrofit=new Retrofit.Builder().client(client).baseUrl(URL).build();
-
+        Log.i("url-->",URL);
         RequestBody body=RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"),obj);
         iUrl login = retrofit.create(iUrl.class);
         Call<ResponseBody> data = login.getMessage(body);

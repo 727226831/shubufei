@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import com.example.icbc.R;
 import com.example.icbc.databinding.ItemCmakelineBinding;
 import com.example.shubufei.DataBean;
+import com.example.shubufei.bean.Data;
 
 import java.util.List;
 
@@ -24,8 +25,8 @@ public class cMakeLineAdapter extends RecyclerView.Adapter<cMakeLineAdapter.VH>{
         return new cMakeLineAdapter.VH(binding.getRoot());
     }
 
-    private List<DataBean> mDatas;
-    public cMakeLineAdapter(List<DataBean> data) {
+    private List<Data> mDatas;
+    public cMakeLineAdapter(List<Data> data) {
         this.mDatas = data;
     }
 
@@ -41,7 +42,7 @@ public class cMakeLineAdapter extends RecyclerView.Adapter<cMakeLineAdapter.VH>{
         });
 
 
-        DataBean data=mDatas.get(i);
+        Data data=mDatas.get(i);
         binding.setData(data);
         binding.executePendingBindings();
 

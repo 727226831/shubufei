@@ -47,9 +47,10 @@ public class ListActivity extends AppCompatActivity {
                 finish();
             }
         });
-        getData(getIntent().getStringExtra("ctype"),"");
+        getData(getIntent().getStringExtra("ctype"),getIntent().getStringExtra("cvalue"));
 
     }
+    DataBean dataBean;
     private void getData(String ctype,String cvalue) {
 
         JSONObject jsonObject=new JSONObject();
@@ -57,45 +58,26 @@ public class ListActivity extends AppCompatActivity {
             jsonObject.put("methodname","GetRefData");
             jsonObject.put("ctype",ctype);
             jsonObject.put("cvalue",cvalue);
+            jsonObject.put("cuser",getIntent().getStringExtra("cuser"));
+            jsonObject.put("cwgtype",getIntent().getStringExtra("type"));
         } catch (JSONException e) {
             e.printStackTrace();
         }
         String obj=jsonObject.toString();
         Log.i("json object",obj);
 
-        Call<ResponseBody> data = Request.getRequestbody(obj);
+        final Call<ResponseBody> data = Request.getRequestbody(obj);
+
         data.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
 
                 try {
 
-                    Gson gson = new Gson();
-                    final List<DataBean> dataBeanList=new ArrayList<>();
-                    JsonArray arry = new JsonParser().parse(response.body().string()).getAsJsonArray();
-                    for (JsonElement jsonElement : arry) {
-                        dataBeanList.add(gson.fromJson(jsonElement, DataBean.class));
-                    }
-                    if(getIntent().getStringExtra("ctype").equals("GongYi")){
-                        GongYiAdapter adapter=new GongYiAdapter(dataBeanList);
-                        adapter.setOnitemClickLintener(new GongYiAdapter.OnitemClick() {
-                            @Override
-                            public void onItemClick(int position) {
-                                if (position==0){
-                                    return;
-                                }
-                                Intent intent=new Intent();
-                                intent.putExtra("data",dataBeanList.get(position));
-                                setResult(100,intent);
-                                finish();
-                            }
-                        });
-                        recyclerView.setLayoutManager(new LinearLayoutManager(ListActivity.this));
-                        recyclerView.addItemDecoration(new SpacesItemDecoration(0));
-                        recyclerView.setAdapter(adapter);
 
-                    }else if(getIntent().getStringExtra("ctype").equals("cMakeLine")){
-                        cMakeLineAdapter adapter=new cMakeLineAdapter(dataBeanList);
+                    dataBean=new Gson().fromJson(response.body().string(),DataBean.class);
+                    if(getIntent().getStringExtra("ctype").equals("cMakeLine")){
+                        cMakeLineAdapter adapter=new cMakeLineAdapter(dataBean.getData());
                         adapter.setOnitemClickLintener(new cMakeLineAdapter.OnitemClick() {
                             @Override
                             public void onItemClick(int position) {
@@ -103,7 +85,7 @@ public class ListActivity extends AppCompatActivity {
                                     return;
                                 }
                                 Intent intent=new Intent();
-                                intent.putExtra("data",dataBeanList.get(position));
+                                intent.putExtra("data",dataBean.getData().get(position));
                                 setResult(200,intent);
                                 finish();
                             }
@@ -113,7 +95,17 @@ public class ListActivity extends AppCompatActivity {
                         recyclerView.setAdapter(adapter);
                         adapter.notifyDataSetChanged();
                     }else if(getIntent().getStringExtra("ctype").equals("Inventory")){
-                        FunctionAdapter adapter=new FunctionAdapter(dataBeanList);
+                        for (int i = 0; i <dataBean.getData().size() ; i++) {
+                            if(getIntent().getStringExtra("type").equals("裁剪填报")){
+                                dataBean.getData().get(i).setIdayqty(dataBean.getData().get(i).getIcjqty());
+                            }else  if(getIntent().getStringExtra("type").equals("完工填报")){
+                                dataBean.getData().get(i).setIdayqty(dataBean.getData().get(i).getIscqty());
+                            }else  if(getIntent().getStringExtra("type").equals("包装填报")){
+                                dataBean.getData().get(i).setIdayqty(dataBean.getData().get(i).getIbzqty());
+                            }
+                        }
+
+                        FunctionAdapter adapter=new FunctionAdapter(dataBean.getData());
                         recyclerView.setLayoutManager(new LinearLayoutManager(ListActivity.this));
                         recyclerView.addItemDecoration(new SpacesItemDecoration(0));
                         recyclerView.setAdapter(adapter);
@@ -124,7 +116,7 @@ public class ListActivity extends AppCompatActivity {
                                     return;
                                 }
                                 Intent intent=new Intent();
-                                intent.putExtra("data",dataBeanList.get(position));
+                                intent.putExtra("data",dataBean.getData().get(position));
                                 setResult(300,intent);
                                 finish();
                             }

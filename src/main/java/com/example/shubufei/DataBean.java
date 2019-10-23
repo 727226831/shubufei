@@ -3,94 +3,39 @@ package com.example.shubufei;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.example.shubufei.bean.Data;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DataBean implements Parcelable {
 
-    public String getCinvcode() {
-        return cinvcode;
-    }
 
-    public void setCinvcode(String cinvcode) {
-        this.cinvcode = cinvcode;
-    }
-
-    private String cinvcode;
-    private String cinvname;
-    private String dstartdate;
-    private String denddate;
-    private String iquantity;
-    private String itotalqty;
-    private String idayqty;
-    private String ccode;
-    private String cname;
-    private  String ccompanyname;
-
-    public String getCcode() {
-        return ccode;
-    }
-
-    public void setCcode(String ccode) {
-        this.ccode = ccode;
-    }
-
-    public String getCname() {
-        return cname;
-    }
-
-    public void setCname(String cname) {
-        this.cname = cname;
-    }
-
-    public String getCcompanyname() {
-        return ccompanyname;
-    }
-
-    public void setCcompanyname(String ccompanyname) {
-        this.ccompanyname = ccompanyname;
-    }
-
-
-
-        public void setCinvname(String cinvname) {
-            this.cinvname = cinvname;
+        private String Resultcode;
+        private String ResultMessage;
+        private List<Data> data;
+        public void setResultcode(String Resultcode) {
+            this.Resultcode = Resultcode;
         }
-        public String getCinvname() {
-            return cinvname;
+        public String getResultcode() {
+            return Resultcode;
         }
 
-        public void setDstartdate(String dstartdate) {
-            this.dstartdate = dstartdate;
+        public void setResultMessage(String ResultMessage) {
+            this.ResultMessage = ResultMessage;
         }
-        public String getDstartdate() {
-            return dstartdate;
-        }
-
-        public void setDenddate(String denddate) {
-            this.denddate = denddate;
-        }
-        public String getDenddate() {
-            return denddate;
+        public String getResultMessage() {
+            return ResultMessage;
         }
 
-        public void setIquantity(String iquantity) {
-            this.iquantity = iquantity;
+        public void setData(List<Data> data) {
+            this.data = data;
         }
-        public String getIquantity() {
-            return iquantity;
-        }
-
-        public void setItotalqty(String itotalqty) {
-            this.itotalqty = itotalqty;
-        }
-        public String getItotalqty() {
-            return itotalqty;
+        public List<Data> getData() {
+            return data;
         }
 
-        public void setIdayqty(String idayqty) {
-            this.idayqty = idayqty;
-        }
-        public String getIdayqty() {
-            return idayqty;
-        }
+
 
 
     @Override
@@ -100,32 +45,19 @@ public class DataBean implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.cinvcode);
-        dest.writeString(this.cinvname);
-        dest.writeString(this.dstartdate);
-        dest.writeString(this.denddate);
-        dest.writeString(this.iquantity);
-        dest.writeString(this.itotalqty);
-        dest.writeString(this.idayqty);
-        dest.writeString(this.ccode);
-        dest.writeString(this.cname);
-        dest.writeString(this.ccompanyname);
+        dest.writeString(this.Resultcode);
+        dest.writeString(this.ResultMessage);
+        dest.writeList(this.data);
     }
 
     public DataBean() {
     }
 
     protected DataBean(Parcel in) {
-        this.cinvcode = in.readString();
-        this.cinvname = in.readString();
-        this.dstartdate = in.readString();
-        this.denddate = in.readString();
-        this.iquantity = in.readString();
-        this.itotalqty = in.readString();
-        this.idayqty = in.readString();
-        this.ccode = in.readString();
-        this.cname = in.readString();
-        this.ccompanyname = in.readString();
+        this.Resultcode = in.readString();
+        this.ResultMessage = in.readString();
+        this.data = new ArrayList<Data>();
+        in.readList(this.data, Data.class.getClassLoader());
     }
 
     public static final Parcelable.Creator<DataBean> CREATOR = new Parcelable.Creator<DataBean>() {
