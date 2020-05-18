@@ -145,6 +145,22 @@ public class Item1Activity extends AppCompatActivity {
                     Toast.makeText(Item1Activity.this, "填报类型不能为空", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                if(ctype.equals("裁剪填报")){
+                    if(Integer.parseInt(binding.etIqty.getText().toString())>Integer.parseInt(dataBean.getIquantity())){
+                        Toast.makeText(Item1Activity.this, "数量超出", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }else if(ctype.equals("生产填报")){
+                    if(Integer.parseInt(binding.etIqty.getText().toString())>Integer.parseInt(dataBean.getIcjqty())){
+                        Toast.makeText(Item1Activity.this, "数量超出", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }else if(ctype.equals("包装填报")){
+                    if(Integer.parseInt(binding.etIqty.getText().toString())>Integer.parseInt(dataBean.getIscqty())){
+                        Toast.makeText(Item1Activity.this, "数量超出", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
                 pushData();
             }
         });
@@ -231,7 +247,7 @@ public class Item1Activity extends AppCompatActivity {
                             binding.tvItem13.setText("剩余数量：");
                             binding.tvKey5.setText("上线日期：");
                             binding.tvKey6.setText("下线日期：");
-                            binding.tvCount.setText("订单数量：");
+                            binding.tvCount.setText("开单数量：");
                             binding.tvKey10.setText("今日累计产量：");
                             binding.etIqty.setText("");
                             binding.etRemarks.setText("");
@@ -297,8 +313,12 @@ public class Item1Activity extends AppCompatActivity {
               iquantity=dataBean.getIquantity();
                 binding.tvKey5.setText("上线日期："+dataBean.getDstartdate());
                 binding.tvKey6.setText("下线日期："+dataBean.getDenddate());
-                binding.tvCount.setText("订单数量："+dataBean.getIquantity());
+                binding.tvCount.setText("开单数量："+dataBean.getIquantity());
                 binding.tvKey10.setText("今日累计产量："+dataBean.getIdayqty());
+                binding.tvIcjqty.setText("裁剪数量："+dataBean.getIcjqty());
+                binding.tvIscqty.setText("生产数量："+dataBean.getIscqty());
+                binding.tvIsoqty.setText("订单数量："+dataBean.getIsoqty());
+                binding.tvCmemo.setText("开单备注："+dataBean.getCmemo());
 
 
 

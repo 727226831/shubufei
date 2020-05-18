@@ -77,6 +77,25 @@ public class Data implements Parcelable {
     private String iquantity;
     private String itotalqty;
 
+    public String getIsoqty() {
+        return isoqty;
+    }
+
+    public void setIsoqty(String isoqty) {
+        this.isoqty = isoqty;
+    }
+
+    public String getCmemo() {
+        return cmemo;
+    }
+
+    public void setCmemo(String cmemo) {
+        this.cmemo = cmemo;
+    }
+
+    private String isoqty;
+    private String cmemo;
+
     public String getCgroupname() {
         return cgroupname;
     }
@@ -157,11 +176,16 @@ public class Data implements Parcelable {
         dest.writeString(this.denddate);
         dest.writeString(this.iquantity);
         dest.writeString(this.itotalqty);
+        dest.writeString(this.isoqty);
+        dest.writeString(this.cmemo);
         dest.writeString(this.cgroupname);
         dest.writeString(this.idayqty);
         dest.writeString(this.ccode);
         dest.writeString(this.cname);
         dest.writeString(this.ccompanyname);
+        dest.writeString(this.icjqty);
+        dest.writeString(this.iscqty);
+        dest.writeString(this.ibzqty);
     }
 
     protected Data(Parcel in) {
@@ -171,11 +195,16 @@ public class Data implements Parcelable {
         this.denddate = in.readString();
         this.iquantity = in.readString();
         this.itotalqty = in.readString();
+        this.isoqty = in.readString();
+        this.cmemo = in.readString();
         this.cgroupname = in.readString();
         this.idayqty = in.readString();
         this.ccode = in.readString();
         this.cname = in.readString();
         this.ccompanyname = in.readString();
+        this.icjqty = in.readString();
+        this.iscqty = in.readString();
+        this.ibzqty = in.readString();
     }
 
     public static final Creator<Data> CREATOR = new Creator<Data>() {
