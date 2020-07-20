@@ -146,6 +146,7 @@ public class Item1Activity extends AppCompatActivity {
                     return;
                 }
                 if(ctype.equals("裁剪填报")){
+
                     if(Integer.parseInt(binding.etIqty.getText().toString())>Integer.parseInt(dataBean.getIquantity())){
                         Toast.makeText(Item1Activity.this, "数量超出", Toast.LENGTH_SHORT).show();
                         return;
@@ -301,6 +302,7 @@ public class Item1Activity extends AppCompatActivity {
 
             case 200:
                 dataBean=data.getParcelableExtra("data");
+                Log.i("databean",new Gson().toJson(dataBean));
                 productcode=dataBean.getCcode();
               binding.tvKey2.setText("产线："+dataBean.getCcode()+"/"+dataBean.getCname()+"/"+
                       dataBean.getCcompanyname()+"/"+dataBean.getCgroupname());

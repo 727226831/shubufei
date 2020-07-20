@@ -19,6 +19,16 @@
 
 
     <include layout="@layout/layout_title"/>
+        <TextView
+            android:textColor="@color/blue"
+            android:id="@+id/tv_type"
+            android:drawableRight="@mipmap/ic_choose"
+            android:layout_margin="@dimen/layout_margin"
+            android:text="填报类型："
+            style="@style/item_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
     <LinearLayout
         android:id="@+id/ll_item1"
         android:orientation="horizontal"
@@ -38,16 +48,7 @@
             />
 
     </LinearLayout>
-    <TextView
-        android:textColor="@color/blue"
-        android:id="@+id/tv_type"
-        android:drawableRight="@mipmap/ic_choose"
-        android:layout_margin="@dimen/layout_margin"
-        android:text="填报类型："
-        style="@style/item_normal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+
     <TextView
 
         android:textColor="@color/blue"

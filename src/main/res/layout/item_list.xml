@@ -14,6 +14,7 @@
         <TextView
             android:text="@{data.cinvcode}"
             style="@style/tv"
+            android:layout_weight="9"
             />
 
 
@@ -26,10 +27,12 @@
 
         <TextView
             android:text="@{data.iquantity}"
+            android:layout_weight="11"
             style="@style/tv" />
 
         <TextView
             android:text="@{data.idayqty}"
+            android:layout_weight="11"
             style="@style/tv" />
 
 
